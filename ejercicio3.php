@@ -1,41 +1,40 @@
 <?php require __DIR__ . '/includes/header.php'; ?>
 
-<div>
-    <h2>Palíndromos</h2>
-    <p>Determina si una palabra o frase es un palíndromo.</p>
+<h2>Palíndromos</h2>
+<p>Determina si una palabra o frase es un palíndromo.</p>
 
-    <?php
-    function esPalindromo($texto) {
-        // convertimos todo a minúsculas
-        $texto = strtolower($texto);
+<?php
+function esPalindromo($texto)
+{
+    // convertimos todo a minúsculas
+    $texto = strtolower($texto);
 
-        // eliminamos espacios y caracteres no alfabéticos
-        $texto = preg_replace("/[^a-z0-9]/", "", $texto);
+    // eliminamos espacios y caracteres no alfabéticos
+    $texto = preg_replace("/[^a-z0-9]/", "", $texto);
 
-        // invertimos el texto
-        $invertido = strrev($texto);
+    // invertimos el texto
+    $invertido = strrev($texto);
 
-        // comparamos
-        return $texto === $invertido;
-    }
+    // comparamos
+    return $texto === $invertido;
+}
 
-    $frases = [
-        "Ana",
-        "Anita lava la tina",
-        "La ruta natural",
-        "Hola Mundo",
-        "Flan"
-    ];
-    ?>
+$frases = [
+    "Ana",
+    "Anita lava la tina",
+    "La ruta natural",
+    "Hola Mundo",
+    "Flan"
+];
+?>
 
-    <div class="card">
-        <h3>Resultados</h3>
-        <ul>
-            <?php foreach ($frases as $frase) : ?>
-                <li>
-                    "<?php echo $frase; ?>" <?php echo esPalindromo($frase) ? "es un palíndromo" : "no es un palíndromo"; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+<div class="card">
+    <h3>Resultados</h3>
+    <ul>
+        <?php foreach ($frases as $frase) : ?>
+            <li>
+                "<?php echo $frase; ?>" <?php echo esPalindromo($frase) ? "es un palíndromo" : "no es un palíndromo"; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </div>
