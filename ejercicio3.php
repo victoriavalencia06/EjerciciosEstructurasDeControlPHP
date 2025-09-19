@@ -6,16 +6,12 @@
 <?php
 function esPalindromo($texto)
 {
-    // convertimos todo a minúsculas
     $texto = strtolower($texto);
 
-    // eliminamos espacios y caracteres no alfabéticos
     $texto = preg_replace("/[^a-z0-9]/", "", $texto);
 
-    // invertimos el texto
     $invertido = strrev($texto);
 
-    // comparamos
     return $texto === $invertido;
 }
 
